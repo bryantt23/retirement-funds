@@ -17,17 +17,30 @@ class CalculatorTest < ActiveSupport::TestCase
   end
 
   test "20 yo starts at 0, puts $1000 a year at 0% interest" do
-    assert_equal 45000, @calculator.how_much_at_retirement(20, 1000, 0)
+    assert_equal 45000, @calculator.how_much_at_retirement(20, 0, 1000, 0)
+  end
+
+  test "30 yo starts at 50000, puts $0 a year at 5% interest" do
+    assert_equal 275800, @calculator.how_much_at_retirement(30, 50000, 0, 5)
+  end
+
+    test "20 yo starts at 10000, puts $0 a year at 10% interest" do
+      assert_equal 728904, @calculator.how_much_at_retirement(20, 10000, 0, 10)
+    end
+
+
+  test "20 yo starts at 0, puts $500 a year at 10% interest" do
+    assert_equal 359452, @calculator.how_much_at_retirement(20, 0, 500, 0)
   end
 
   test "20 yo starts at 0, puts $1000 a year and it earns 5% interest" do
-    assert_equal 45000, @calculator.how_much_at_retirement(20, 1000, 5)
+    assert_equal 159700, @calculator.how_much_at_retirement(20, 0, 1000, 5)
   end
 
 
-  test "20 yo starts at 1000, puts $1000 a year and it earns 15% interest" do
-    assert_equal 45000, @calculator.how_much_at_retirement(20, 1000, 15, 1000)
+  test "40 yo starts at 10000, puts $5000 a year and it earns 15% interest" do
+    assert_equal 1393155, @calculator.how_much_at_retirement(40, 10000, 5000, 15)
   end
-
+  # age, initial_contribution, yearly_contribution, annual_interest_rate)
 
 end
