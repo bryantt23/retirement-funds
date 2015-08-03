@@ -15,17 +15,13 @@ class Calculator < ActiveRecord::Base
       total = initial_contribution*((1+annual_interest_rate/100.to_f))**years_until_retirement
       total.to_i
     else
-
-      years_until_retirement.times do
-
-        initial_contribution = total + yearly_contribution
-
-        total = initial_contribution*((1+annual_interest_rate/100.to_f))
-      end
-
+      total = initial_contribution*((1+annual_interest_rate.to_f))**years_until_retirement +
+      (yearly_contribution)*(((1+annual_interest_rate/100.to_f)**years_until_retirement-1)/annual_interest_rate.to_f)
+      total.to_i
     end
-
   end
 
 end
+
+
 # , :initial_contribution, :yearly_contribution, :annual_interest_rate
