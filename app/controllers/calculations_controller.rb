@@ -13,6 +13,11 @@ class CalculationsController < ApplicationController
     calc = Calculator.new
 
     @result = calc.how_much_at_retirement(age, initial_contribution, annual_interest_rate)
+    @age=age
+    @initial_contribution=initial_contribution
+    @annual_interest_rate=annual_interest_rate
+
+
 
   end
 
