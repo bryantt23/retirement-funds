@@ -1,11 +1,11 @@
 class Calculator < ActiveRecord::Base
   validates :age, :initial_contribution, :yearly_contribution, :annual_interest_rate, presence: true,  :numericality => { :greater_than_or_equal_to => 0 }
-
+  
   def how_long_until_retirement(age)
     65-age
   end
 
-  def how_much_at_retirement(age, initial_contribution, yearly_contribution, annual_interest_rate)
+  def how_much_at_retirement(age, initial_contribution, yearly_contribution=0, annual_interest_rate)
 
     years_until_retirement=how_long_until_retirement(age)
 

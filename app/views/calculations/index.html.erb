@@ -1,0 +1,11 @@
+
+
+<%= form_tag("/calculate", :method => "post") do %>
+
+  <%= text_field_tag(:age, nil, placeholder: "Enter age")%> &nbsp;
+  <%= text_field_tag(:initial_contribution, nil, placeholder: "Enter initial contribution") %>
+  <%= text_field_tag(:annual_interest_rate, nil, placeholder: "Enter annual interest rate") %>
+<p>
+<%= submit_tag("Calculate") %>
+</p>
+<% end %>
