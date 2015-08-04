@@ -2,8 +2,6 @@ require 'test_helper'
 
 class CalculatorTest < ActiveSupport::TestCase
 
-
-
   def setup
     @calculator = Calculator.new
   end
